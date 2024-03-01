@@ -1,15 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\Admin\{
     FonctionController,
     AssignationController,
 };
 
-use App\Http\Controllers\User\{
-    AgentController,
-};
+// use App\Http\Controllers\User\{
+//     AgentController,
+// };
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,13 +23,7 @@ use App\Http\Controllers\User\{
 |
 */
 
-Route::get('/', function () { 
-    return view('auth.login');  //auth.login
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {

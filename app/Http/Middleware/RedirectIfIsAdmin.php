@@ -16,13 +16,12 @@ class RedirectIfIsAdmin
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next)
-    {
-        return $next($request);
+    {        
 
         if(Gate::allows('admin')) {
             return $next($request);
         }
 
-        return redirect()->route('auth.login')->with('toast_error', "Vous n\'avez pas l\'habiliattion requise !");
+        return redirect()->route('login')->with('toast_error', "Vous n'avez pas l'habiliattion requise !");
     }
 }

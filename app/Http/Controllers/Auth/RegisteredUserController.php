@@ -49,11 +49,7 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        // Auth::login($user);
-
-        // return redirect(RouteServiceProvider::HOME);
-        // return redirect()->route('login')->with('toast_success', 'Enregistrement bien effectué !');
-        return back()->with('toast_success', 'Enregistrement bien effectué ! Veuillez vous rendre sur la page de connexion.');
+        return back()->with('toast_success', "Enregistrement bien effectué ! Veuillez Contacter l'administrateur pour avoir une habilitation avant de vous connecter.");
 
     }
 }
