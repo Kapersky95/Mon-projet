@@ -25,7 +25,6 @@ use App\Http\Controllers\Admin\{
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 
     //Methodes CRUD
